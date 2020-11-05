@@ -1,0 +1,17 @@
+<h1><strong>Name:</strong><%= @scientist.name %></h1>
+  
+
+<h3>Planets Visited:</h3>
+<ul>
+<% @missions_done.each do |mission| %>
+  <li>
+    <p><label>Planet:</label>
+    <%= link_to mission.planet.name, planet_path(mission.planet) %></p>
+    <p><label>Mission Name: </label>
+    <%= mission.name %></p>
+  </li>
+<% end %>
+</ul>
+<%= link_to "Edit My Info", edit_scientist_path(@scientist) %>
+<hr>
+<%= link_to 'Scientists Index', scientists_path %>

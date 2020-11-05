@@ -1,0 +1,24 @@
+<h1>Scientists</h1>
+
+<h3><%= link_to "Become a Scientist Today!", new_scientist_path %></h3>
+<h3><%= link_to "New Mission Sign Up!", new_mission_path %></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Field of study</th>
+      <th>Delete Scientist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scientists.each do |scientist| %>
+      <tr>
+        <td><%= link_to scientist.name, scientist_path(scientist) %></td>
+        <td><%= scientist.field_of_study %></td>
+        <td><%= button_to "Delete Scientist", scientist_path(scientist), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
